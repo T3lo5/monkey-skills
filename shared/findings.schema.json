@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Monkey User Findings",
+  "type": "object",
+  "required": ["meta", "findings", "test_cases", "queue"],
+  "properties": {
+    "meta": {"type":"object", "required":["run_id","generated_at","project","scope","environment","stack","tools","limitations","coverage"], "properties":{"run_id":{"type":"string"},"generated_at":{"type":"string"},"project":{"type":"string"},"scope":{"type":"string"},"environment":{"type":"string"},"stack":{"type":"array","items":{"type":"string"}},"tools":{"type":"array","items":{"type":"string"}},"limitations":{"type":"array","items":{"type":"string"}},"coverage":{"type":"object"}},"additionalProperties":true},
+    "findings": {"type":"array","items":{"type":"object","required":["id","title","status","priority","severity","confidence","category","steps","observed","expected","user_impact","evidence","recommendation"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"status":{"enum":["confirmed","suspected","blocked","not_tested"]},"priority":{"enum":["P0","P1","P2","P3","P4"]},"severity":{"type":"string"},"confidence":{"enum":["high","medium","low"]},"category":{"type":"string"},"route":{"type":"string"},"component":{"type":"string"},"preconditions":{"type":"array","items":{"type":"string"}},"steps":{"type":"array","items":{"type":"string"}},"observed":{"type":"string"},"expected":{"type":"string"},"user_impact":{"type":"string"},"evidence":{"type":"array","items":{"type":"object","properties":{"kind":{"type":"string"},"path":{"type":"string"},"description":{"type":"string"},"redacted":{"type":"boolean"}},"additionalProperties":true}},"recommendation":{"type":"string"},"source_refs":{"type":"array","items":{"type":"string"}},"tags":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}},
+    "test_cases": {"type":"array","items":{"type":"object","required":["id","title","area","status"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"area":{"type":"string"},"status":{"enum":["passed","failed","blocked","not_tested","inconclusive"]},"route":{"type":"string"},"notes":{"type":"string"}},"additionalProperties":true}},
+    "queue": {"type":"array","items":{"type":"object","required":["finding_ids","title","priority","rationale","dependencies","suggested_order"],"properties":{"finding_ids":{"type":"array","items":{"type":"string"}},"title":{"type":"string"},"priority":{"enum":["P0","P1","P2","P3","P4"]},"rationale":{"type":"string"},"dependencies":{"type":"array","items":{"type":"string"}},"suggested_order":{"type":"integer"}},"additionalProperties":true}}
+  },
+  "additionalProperties": true
+}

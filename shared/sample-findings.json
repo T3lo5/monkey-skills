@@ -1,0 +1,15 @@
+{
+  "meta": {"run_id":"demo-001","generated_at":"2026-10-23","project":"Projeto de demonstração","scope":"Amostra ilustrativa","environment":"Local de demonstração","stack":["Stack fictícia"],"tools":["Renderizador local"],"limitations":["Dados fictícios; não são resultados de auditoria real."],"coverage":{}},
+  "findings": [
+    {"id":"MU-001","title":"Clique repetido pode duplicar envio","status":"confirmed","priority":"P1","severity":"Alta","confidence":"high","category":"Formulário","route":"/exemplo/criar","component":"Componente fictício","preconditions":[],"steps":["Abrir o formulário de exemplo","Clicar rapidamente duas vezes em Salvar"],"observed":"Exemplo fictício: duas submissões registradas no mock.","expected":"Uma submissão por intenção do usuário.","user_impact":"Pode criar registros duplicados.","evidence":[{"kind":"note","description":"Evidência fictícia para demonstração; não é captura real.","redacted":true}],"recommendation":"Investigar submissão duplicada; nenhuma correção aplicada.","source_refs":[],"tags":["forms"]},
+    {"id":"MU-002","title":"Mensagem de erro pouco clara","status":"suspected","priority":"P2","severity":"Média","confidence":"medium","category":"Feedback","route":"/exemplo/editar","component":"Componente fictício","preconditions":[],"steps":["Provocar validação no mock"],"observed":"Exemplo fictício: mensagem genérica.","expected":"Mensagem indicar como corrigir o campo.","user_impact":"Usuário pode não saber como continuar.","evidence":[],"recommendation":"Confirmar no ambiente real antes de abrir correção.","source_refs":[],"tags":["validation"]}
+  ],
+  "test_cases": [
+    {"id":"TC-001","title":"Envio repetido","area":"Formulário","status":"failed","route":"/exemplo/criar","notes":"Exemplo fictício."},
+    {"id":"TC-002","title":"Clareza da validação","area":"Feedback","status":"inconclusive","route":"/exemplo/editar","notes":"Exemplo fictício."}
+  ],
+  "queue": [
+    {"finding_ids":["MU-001"],"title":"Investigar submissão duplicada","priority":"P1","rationale":"Exemplo fictício de possível duplicação.","dependencies":[],"suggested_order":1},
+    {"finding_ids":["MU-002"],"title":"Melhorar validação","priority":"P2","rationale":"Precisa confirmar no ambiente real.","dependencies":[],"suggested_order":2}
+  ]
+}
